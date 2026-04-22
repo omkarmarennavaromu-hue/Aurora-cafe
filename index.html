@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AURORA CAFE — Brewed Slow. Served Warm.</title>
+  <meta name="description" content="AURORA CAFE — Brewed Slow. Served Warm. An ultra-minimal premium café experience." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #f5efe6;
+      --surface: #faf6f0;
+      --text: #4b2e2b;
+      --muted: #7b6763;
+      --accent: #2f6f6d;
+      --line: rgba(75, 46, 43, 0.10);
+      --shadow: 0 18px 40px rgba(75, 46, 43, 0.06);
+      --radius: 28px;
+      --container: 1120px;
+      --space: 140px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: var(--space) 0;
+    }
+
+    .label {
+      display: inline-block;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 18px;
+      font-weight: 600;
+    }
+
+    h1, h2, h3 {
+      font-family: "Playfair Display", serif;
+      letter-spacing: -0.03em;
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: clamp(2.2rem, 5vw, 4.2rem);
+      line-height: 1.04;
+      margin-bottom: 18px;
+    }
+
+    .intro {
+      max-width: 640px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .nav {
+      position: fixed;
+      top: 18px;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    .nav-shell {
+      width: min(920px, calc(100% - 24px));
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid rgba(255,255,255,0.45);
+      background: rgba(250, 246, 240, 0.72);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 999px;
+      box-shadow: 0 10px 30px rgba(75, 46, 43, 0.06);
+    }
+
+    .brand {
+      font-size: 0.95rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      transition: color 0.25s ease, opacity 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(to bottom, rgba(52, 36, 33, 0.16), rgba(52, 36, 33, 0.34)),
+        url("https://sspark.genspark.ai/cfimages?u1=VCVOBq6ACyXREhNGMtXY3MRhY1UXT6xX6RLojYJx0F8TIGasfVOhsstzRv0GCpb6Xomr8HiXvtFoShUjDkgczvgn8PaxcCNnDl8S8AV7eTnW1XM%2Flo2gDkRMpaaxR69PZ3Y1YX6JmndxbkR015s6%2B38If3OVP0lfcOpZCch7b9WS6CBMuBLhMw%2FMC7q%2Bmw%3D%3D&u2=QMEpdHF69%2FHTB1%2Bb&width=2560") center center / cover no-repeat;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 180px;
+      background: linear-gradient(to top, var(--bg), transparent);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      text-align: center;
+      color: #fff7f1;
+      padding-top: 90px;
+    }
+
+    .hero-mark {
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      opacity: 0.9;
+    }
+
+    .hero h1 {
+      font-size: clamp(3.6rem, 9vw, 7.5rem);
+      line-height: 0.94;
+      margin-bottom: 20px;
+      text-shadow: 0 10px 24px rgba(0,0,0,0.12);
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: 0 auto 34px;
+      color: rgba(255, 247, 241, 0.92);
+      font-size: clamp(1rem, 2vw, 1.15rem);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 52px;
+      padding: 0 24px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.92);
+      color: var(--text);
+      font-weight: 600;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.12);
+      background: #ffffff;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 54px;
+      align-items: center;
+    }
+
+    .about-lines {
+      margin-top: 34px;
+      border-top: 1px solid var(--line);
+    }
+
+    .about-line {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 1.04rem;
+      color: var(--muted);
+    }
+
+    .about-line strong {
+      display: block;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .about-image {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: var(--surface);
+    }
+
+    .about-image img {
+      height: 560px;
+      object-fit: cover;
+    }
+
+    .menu-list {
+      margin-top: 40px;
+      border-top: 1px solid var(--line);
+    }
+
+    .menu-item {
+      display: grid;
+      grid-template-columns: 1.2fr 1.8fr;
+      gap: 20px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--line);
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .menu-item:hover {
+      transform: translateX(4px);
+    }
+
+    .menu-item h3 {
+      font-size: 1.8rem;
+    }
+
+    .menu-item p {
+      color: var(--muted);
+      max-width: 620px;
+    }
+
+    .gallery-grid {
+      margin-top: 42px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .gallery-grid figure {
+      overflow: hidden;
+      border-radius: 22px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      min-height: 320px;
+    }
+
+    .gallery-grid img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-grid figure:hover img {
+      transform: scale(1.03);
+    }
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .quote {
+      padding: 30px;
+      border-radius: 24px;
+      background: rgba(250, 246, 240, 0.78);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .quote:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(75, 46, 43, 0.09);
+    }
+
+    .stars {
+      color: #b28453;
+      letter-spacing: 0.12em;
+      margin-bottom: 16px;
+      font-size: 0.92rem;
+    }
+
+    .quote p {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .quote strong {
+      display: block;
+      font-size: 0.98rem;
+      color: var(--text);
+    }
+
+    .quote span {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .visit-wrap {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 22px;
+      margin-top: 40px;
+    }
+
+    .visit-card {
+      padding: 34px;
+      border-radius: 26px;
+      background: rgba(250, 246, 240, 0.78);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .visit-card h3 {
+      font-size: 2rem;
+      margin-bottom: 24px;
+    }
+
+    .visit-block + .visit-block {
+      margin-top: 22px;
+    }
+
+    .visit-label {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .visit-value {
+      color: var(--muted);
+    }
+
+    .map {
+      width: 100%;
+      min-height: 460px;
+      border: 0;
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    footer {
+      padding: 36px 0 50px;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .footer-title {
+      color: var(--text);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .credit {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1024px) {
+      :root {
+        --space: 110px;
+      }
+
+      .about,
+      .visit-wrap,
+      .testimonials {
+        grid-template-columns: 1fr;
+      }
+
+      .menu-item {
+        grid-template-columns: 1fr;
+      }
+
+      .about-image img {
+        height: 420px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      :root {
+        --space: 88px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid figure {
+        min-height: 240px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero h1 {
+        font-size: clamp(3rem, 14vw, 5rem);
+      }
+
+      .visit-card,
+      .quote {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-shell">
+      <a href="#home" class="brand">Aurora Cafe</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#menu">Menu</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#visit">Visit</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="container">
+      <div class="hero-content reveal">
+        <div class="hero-mark">AURORA CAFE</div>
+        <h1>Brewed Slow.<br>Served Warm.</h1>
+        <p>
+          Quiet coffee, warm light, and a space designed to feel effortless.
+        </p>
+        <a href="#menu" class="btn">View Menu</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="about">
+      <div class="container about">
+        <div class="reveal">
+          <span class="label">About</span>
+          <h2>Premium calm, without the noise.</h2>
+          <p class="intro">
+            AURORA CAFE is built around softness, restraint, and the comfort of staying longer than planned.
+          </p>
+
+          <div class="about-lines">
+            <div class="about-line">
+              <strong>The atmosphere</strong>
+              Warm wood, quiet light, and a room that feels settled from the moment you enter.
+            </div>
+            <div class="about-line">
+              <strong>The beans</strong>
+              Carefully selected roasts with rounded body, clean sweetness, and depth that lingers.
+            </div>
+            <div class="about-line">
+              <strong>The comfort</strong>
+              Every seat, sip, and detail is designed to feel slow, warm, and easy.
+            </div>
+          </div>
+        </div>
+
+        <div class="about-image reveal">
+          <img
+            src="https://sspark.genspark.ai/cfimages?u1=2IHNtbP246NyMM7zxkM4yg6QmCOFyRLh1eCvHCD%2BBFVYqT4ENRZY%2FRcsJXPH%2B3joKTj3ua63wrzae73ABeCJR8LAL%2B6zhMTONOiP5sC6Cf4w9daT6heL7yoHuKI7FVvLxmk9L2nevepqJHPVT2YARwuU46TFzwYmf9fvb2TOyjBj8JONtofp&u2=dqyn5zcuYn0Cxd4D&width=2560"
+            alt="Cozy cafe interior with coffee decor"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="menu">
+      <div class="container">
+        <div class="reveal">
+          <span class="label">Signature Menu</span>
+          <h2>Few things. Done beautifully.</h2>
+          <p class="intro">
+            A restrained menu with just enough variety and a premium feel in every order.
+          </p>
+        </div>
+
+        <div class="menu-list">
+          <div class="menu-item reveal">
+            <h3>Espresso</h3>
+            <p>Compact, polished, and deeply balanced with a smooth finish and quiet intensity.</p>
+          </div>
+          <div class="menu-item reveal">
+            <h3>Cold Brew</h3>
+            <p>Slow-steeped for clarity and softness, finished crisp with chocolate-toned depth.</p>
+          </div>
+          <div class="menu-item reveal">
+            <h3>Desserts</h3>
+            <p>Refined sweets chosen to sit gently beside coffee rather than compete with it.</p>
+          </div>
+          <div class="menu-item reveal">
+            <h3>Bakery Specials</h3>
+            <p>Fresh pastries with buttery layers, delicate texture, and a just-baked warmth.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="container">
+        <div class="reveal">
+          <span class="label">Gallery</span>
+          <h2>Less styling. More feeling.</h2>
+        </div>
+
+        <div class="gallery-grid">
+          <figure class="reveal">
+            <img src="https://sspark.genspark.ai/cfimages?u1=KwSShnn%2Fo43ZXzFp5ERk0LCAU4Lco24X5TUU%2BpiapRcBGILohgyuKL1ZQoYMBLl0eRTVBapVEU4N51QLTzfsQIUPIsEL6aPfT91tKtKXh5hLKypsrxD6vJG3k7A%2BT70ybPX77cxpiOY442jJ%2F1ttVnlw9DCmecDtgHdnDoSRkSEyM8KGndKtBPIQX0XI&u2=V4wVt%2Feqs7mwTGhQ&width=2560" alt="Latte art coffee" />
+          </figure>
+          <figure class="reveal">
+            <img src="https://sspark.genspark.ai/cfimages?u1=VCVOBq6ACyXREhNGMtXY3MRhY1UXT6xX6RLojYJx0F8TIGasfVOhsstzRv0GCpb6Xomr8HiXvtFoShUjDkgczvgn8PaxcCNnDl8S8AV7eTnW1XM%2Flo2gDkRMpaaxR69PZ3Y1YX6JmndxbkR015s6%2B38If3OVP0lfcOpZCch7b9WS6CBMuBLhMw%2FMC7q%2Bmw%3D%3D&u2=QMEpdHF69%2FHTB1%2Bb&width=2560" alt="Cozy rustic cafe interior" />
+          </figure>
+          <figure class="reveal">
+            <img src="https://sspark.genspark.ai/cfimages?u1=s8Pt7Anu7ZWnZ5Tj4NC8w9HqgvE92e8f%2FeURkOd4AZCP2IIBkJ1m%2FcWSK2deVBaUTMp%2BMefMQBDbcR8mlGSRCBLwznLA9wX72odn8%2BegnjXCVD%2FmjG6%2FcG%2Bxif3DD433ljw%3D&u2=4p5NMk7i3O69fzX4&width=2560" alt="Desserts and pastries" />
+          </figure>
+          <figure class="reveal">
+            <img src="https://sspark.genspark.ai/cfimages?u1=UgVyY72%2FzO6eIy%2F6JVj%2FCr8wQLGtk92K8CPOeNqOADdZjN3%2BFch2v0zqIitNCkzgUCo6HZ6UmoZR8lqh5TNgEpOYj3wgmGKv9dp3Yiq8LspaVflYdjAEVwnRU8YZJLEA%2FHTVTYLtE0gUDZnFgwVCUNwHQfjS0EmeWhQpd83YFHYcoE2SRZrDhA%3D%3D&u2=AZwWvm0bdw3B%2BtEJ&width=2560" alt="Woman enjoying a latte in a cozy cafe" />
+          </figure>
+          <figure class="reveal">
+            <img src="https://sspark.genspark.ai/cfimages?u1=o4cm%2Fw3Wu2tQlr%2BOoau420W%2FsafqSgMiCL03LIyKD9hZZwtXvz6RmJH8%2Fv9e%2BalCvkzmAmyVcycdWG4AYRnLygQgqbw5kG9fnpYPMgge9lCdaA%3D%3D&u2=wwlliqDHs1hMUelx&width=2560" alt="Friends enjoying coffee together" />
+          </figure>
+          <figure class="reveal">
+            <img src="https://sspark.genspark.ai/cfimages?u1=n%2B3bvt7oJhirhfwBVlLhDXaX2Vcp5YdyZlepO3V5d14d0q3%2FjpCTADOmMiVKDie7RWPBIXQa6JnQNd2%2FK50AYHnqxU4iHkoPEDNb3PmhC8xeYioT5F6OuW%2FSUqbrR6Z0I7ddfKD%2B4%2F25p5dnXmsqCIxasoUz2gLolQ5G&u2=4Xy9GDXonZgkTKED&width=2560" alt="People sitting in a cafe" />
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="testimonials">
+      <div class="container">
+        <div class="reveal">
+          <span class="label">Testimonials</span>
+          <h2>Quietly memorable.</h2>
+        </div>
+
+        <div class="testimonials">
+          <div class="quote reveal">
+            <div class="stars">★★★★★</div>
+            <p>The space feels expensive in the calmest way. Nothing is loud, but everything feels considered.</p>
+            <strong>Riya S.</strong>
+            <span>Weekend regular</span>
+          </div>
+
+          <div class="quote reveal">
+            <div class="stars">★★★★★</div>
+            <p>Beautiful coffee, soft atmosphere, and the kind of place that makes time slow down a little.</p>
+            <strong>Aditya M.</strong>
+            <span>Coffee enthusiast</span>
+          </div>
+
+          <div class="quote reveal">
+            <div class="stars">★★★★★</div>
+            <p>Minimal, warm, and incredibly comfortable. It feels polished without losing its human warmth.</p>
+            <strong>Neha K.</strong>
+            <span>Remote creative</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="visit">
+      <div class="container">
+        <div class="reveal">
+          <span class="label">Visit Us</span>
+          <h2>Come by. Stay longer.</h2>
+        </div>
+
+        <div class="visit-wrap">
+          <div class="visit-card reveal">
+            <h3>AURORA CAFE</h3>
+
+            <div class="visit-block">
+              <div class="visit-label">Address</div>
+              <div class="visit-value">
+                14 Maple Court, Koregaon Park<br />
+                Pune, Maharashtra 411001
+              </div>
+            </div>
+
+            <div class="visit-block">
+              <div class="visit-label">Opening Hours</div>
+              <div class="visit-value">
+                Mon – Fri: 8:00 AM – 9:00 PM<br />
+                Sat – Sun: 9:00 AM – 10:00 PM
+              </div>
+            </div>
+
+            <div class="visit-block">
+              <div class="visit-label">Atmosphere</div>
+              <div class="visit-value">
+                Walk-ins welcome. Slow mornings. Warm evenings.
+              </div>
+            </div>
+          </div>
+
+          <iframe
+            class="map reveal"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=Koregaon%20Park%20Pune&t=&z=14&ie=UTF8&iwloc=&output=embed">
+          </iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-title">AURORA CAFE</div>
+          <div>Brewed Slow. Served Warm.</div>
+        </div>
+        <div class="credit">Designed by Omkar — DM for custom website</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    reveals.forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
